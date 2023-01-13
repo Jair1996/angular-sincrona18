@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class UsersListComponent {
 
