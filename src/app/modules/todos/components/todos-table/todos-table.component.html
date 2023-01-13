@@ -13,7 +13,7 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ todo.title }}</td>
           <td>
-            <button (click)="seeDetail(todo)" class="btn btn-warning">
+            <button [routerLink]="['/todos', idUser, todo.id]" class="btn btn-warning">
               <a>Ver detalle</a>
             </button>
           </td>
@@ -23,31 +23,8 @@
 
   </div>
   <div class="col-6">
-    <section *ngIf="currentTodo; else noTodo">
-      <ol class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">ID todo</div>
-            {{ currentTodo.id }}
-          </div>
-        </li>
-        <li class="list-group-item  d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Titulo</div>
-            {{ currentTodo.title }}
-          </div>
-        </li>
-        <li [class.list-group-item-danger]="!currentTodo.completed" [class.list-group-item-primary]="currentTodo.completed" class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">{{ currentTodo.completed ? 'Completado' : 'Incompleto' }}</div>
-          </div>
-        </li>
-      </ol>
-    </section>
-    <ng-template #noTodo>
-      <div class="alert alert-danger" role="alert">
-        No se selecciono ningún todo
-      </div>
-    </ng-template>
+    <p class="text-center fs-3 text-primary fw-bold">Detalle de todo</p>
+
+    <router-outlet></router-outlet>
   </div>
 </div>

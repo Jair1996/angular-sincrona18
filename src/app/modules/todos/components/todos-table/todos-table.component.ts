@@ -10,7 +10,8 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodosTableComponent implements OnInit {
   todos: Todo[] = [];
-  currentTodo: Todo | null = null;
+  idUser!: number;
+  toogleMessage: boolean = true;
 
   constructor(
     private todoService: TodoService,
@@ -18,14 +19,10 @@ export class TodosTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const idUser = Number(this.route.snapshot.paramMap.get('id'));
+    this.idUser = Number(this.route.snapshot.paramMap.get('id'));
 
     this.todoService.getTodos().subscribe((todos) => {
-      this.todos = todos.filter((todo) => todo.userId === idUser);
+      this.todos = todos.filter((todo) => todo.userId === this.idUser);
     });
-  }
-
-  seeDetail(todo: Todo) {
-    this.currentTodo = todo;
   }
 }

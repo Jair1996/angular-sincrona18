@@ -1,0 +1,22 @@
+
+<section *ngIf="todo">
+  <ol class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">ID todo</div>
+        {{ todo.id }}
+      </div>
+    </li>
+    <li class="list-group-item  d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Titulo</div>
+        {{ todo.title }}
+      </div>
+    </li>
+    <li [class.list-group-item-danger]="!todo.completed" [class.list-group-item-primary]="todo.completed" class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ todo.completed ? 'Completado' : 'Incompleto' }}</div>
+      </div>
+    </li>
+  </ol>
+</section>

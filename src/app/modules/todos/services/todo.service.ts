@@ -12,6 +12,10 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.url)
+    return this.http.get<Todo[]>(this.url);
+  }
+
+  getTodosById(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${this.url}/${id}`);
   }
 }

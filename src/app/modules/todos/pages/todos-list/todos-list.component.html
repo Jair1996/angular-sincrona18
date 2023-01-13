@@ -1,3 +1,5 @@
-<h1 class="text-center mb-5">Lista de todos de: {{ user.name }}</h1>
+<h1 class="text-center mb-5">
+  Lista de todos de: <span *ngIf="user">{{ user.name }}</span>
+</h1>
 
 <app-todos-table></app-todos-table>
