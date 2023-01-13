@@ -14,7 +14,6 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
   imports: [
     CommonModule,
     UsersRoutingModule,
-
   ]
 })
 export class UsersModule { }
